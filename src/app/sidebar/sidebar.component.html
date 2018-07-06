@@ -1,0 +1,11 @@
+<div class="sidenav" [ngStyle]=" { color: '#b0c4de'  } ">
+    <a routerLink="/home" >Home</a>
+
+  <div *ngIf="words" >
+    <ul>
+      <li *ngFor="let word of words">
+          <a routerLink="/word-detail/{{ word.name}}">{{ word.name |titlecase }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

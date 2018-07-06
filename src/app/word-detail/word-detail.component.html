@@ -1,0 +1,11 @@
+<div *ngIf="word">
+<h2>{{word.name | uppercase}} Details</h2>
+<div 
+  
+  ><span [ngStyle]=" { 'font-size': '24px',
+  'font-weight': 'bold'  } ">name: </span>{{word.name}}</div>
+<div><span [ngStyle]=" { 'font-size': '24px',
+  'font-weight': 'bold'  } ">vowels (from name): </span>{{word.name | fetchVowels}}</div>
+<div><span [ngStyle]=" { 'font-size': '24px',
+  'font-weight': 'bold'  } ">meaning: </span>{{word.meaning}}</div>
+</div>
