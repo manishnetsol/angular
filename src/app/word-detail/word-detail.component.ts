@@ -22,11 +22,11 @@ export class WordDetailComponent implements OnInit {
   ngOnInit(): void {
 
     
-  this.route
+   this.route
     .params
     .subscribe(params => {
       this.getWord();
-    });
+    }); 
 
     this.getWord();
     
@@ -36,8 +36,9 @@ export class WordDetailComponent implements OnInit {
 
     // get the name from the route snapshot. 
     const name = this.route.snapshot.paramMap.get('name');
-    this.word = this.wordService.getWord(name);
-
+    this.wordService.getWord(name)
+          .subscribe(word => this.word = word);
+          
   }
 
 }

@@ -9,6 +9,7 @@ export class FetchVowelsPipe implements PipeTransform {
     let newStrArr: string[] = [];
     let vowels: string[] = ['a', 'e', 'i','o','u'];
 
+    if(typeof value !="undefined"){
     for (var i = 0; i <value.length; i++) {
       if(vowels.some(x=>x==value.charAt(i))){
         newStrArr.push(value.charAt(i));
@@ -17,6 +18,8 @@ export class FetchVowelsPipe implements PipeTransform {
     newStrArr = Array.from(new Set(newStrArr ));
 
     return newStrArr.join(', ');
+  } else 
+    return '';
   }
 
 }

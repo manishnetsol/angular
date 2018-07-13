@@ -12,6 +12,9 @@ import { WordDetailComponent } from './word-detail/word-detail.component';
 import { SearchComponent } from './search/search.component';
 import { SynonymComponent } from './synonym/synonym.component';
 import { FetchVowelsPipe } from './fetch-vowels.pipe';
+import { HttpClientModule } from '@angular/common/http'; 
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { FetchVowelsPipe } from './fetch-vowels.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
