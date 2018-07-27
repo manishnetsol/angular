@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 
 import {Word} from '../word';
-
+import { Observable } from 'rxjs';
 import { WordService } from '../word.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { WordService } from '../word.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  words : Word[]; 
+  words : Observable<Word[]>; 
 
   constructor(private wordService: WordService) { }
 
@@ -21,8 +21,7 @@ export class SidebarComponent implements OnInit {
   getWords():void{
 
     // get the name from the route snapshot.
-    this.wordService.getWords()
-    .subscribe(words => this.words = words);
+    this.words = this.wordService.getWords();
 
   }
 

@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore'; 
+import { AngularFireAuth } from 'angularfire2/auth'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Word } from './word';
+
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,11 +40,15 @@ const url = 'https://app-1531460466.000webhostapp.com/';
 })
 export class WordService {
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient,
+               private afauth: AngularFireAuth, 
+               private db: AngularFirestore) { }
 
    /** GET heroes from the server */
     getWords (): Observable<Word[]> {
-    return this.http.get<Word[]>(`${url}getalldata`);
+    //return this.http.get<Word[]>(`${url}getalldata`);
+
+    return this.db.collection<Word>('words').valueChanges();
 
   }
 
@@ -47,11 +56,11 @@ export class WordService {
     return WORDS;
    } */
 
-  getWord(name: string): Observable<Word>  {
+  getWord(name: string) : Observable<Word[]>  {
     
+    //return this.http.get<Word>(`${url}getdata/${name}`);
+   return this.db.collection<Word>('words', ref => ref.where('name', '==', name)).valueChanges();
 
-    return this.http.get<Word>(`${url}getdata/${name}`);
-  
   }
 
 }

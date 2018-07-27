@@ -3,8 +3,8 @@
 
   <div *ngIf="words" >
     <ul>
-      <li *ngFor="let word of words">
-          <a routerLink="/word-detail/{{ word.name}}">{{ word.name |titlecase }}</a>
+      <li *ngFor="let word of words| async">
+          <a routerLink="/word-detail/{{ word.name}}">{{ k }}{{ word.name |titlecase }}</a>
       </li>
     </ul>
   </div>
