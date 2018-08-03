@@ -37,7 +37,9 @@ export class WordDetailComponent implements OnInit {
     // get the name from the route snapshot. 
     const name = this.route.snapshot.paramMap.get('name');
     this.wordService.getWord(name)
-          .subscribe(word => this.word = word[0]);
+          .subscribe((word) => {
+            this.word = word[0];
+          });
           
   }
 

@@ -1,4 +1,4 @@
-<div *ngIf="word">
+<!--<div *ngIf="word">
 <h2>{{word.name | uppercase}} Details</h2>
 <div 
   
@@ -8,4 +8,30 @@
   'font-weight': 'bold'  } ">vowels (from name): </span>{{word.name | fetchVowels}}</div>
 <div><span [ngStyle]=" { 'font-size': '24px',
   'font-weight': 'bold'  } ">meaning: </span>{{word.meaning}}</div>
-</div>
+</div>-->
+
+<div *ngIf="word;then content else not_found">here is ignored</div>    
+
+<ng-template #content>
+    <div class="centered word-detail">
+      <h2>{{word.name | uppercase}} Details</h2>
+      <div><span [ngStyle]=" { 'font-size': '24px',
+        'font-weight': 'bold'  } ">name: </span>{{word.name}}</div>
+      <div><span [ngStyle]=" { 'font-size': '24px',
+        'font-weight': 'bold'  } ">vowels (from name): </span>{{word.name | fetchVowels}}</div>
+      <div><span [ngStyle]=" { 'font-size': '24px',
+        'font-weight': 'bold'  } ">meaning: </span>{{word.meaning}}</div>
+  </div>
+</ng-template>
+
+<ng-template #not_found>
+    <div class="centered">
+        <h1> 404 </h1>
+        <hr> 
+        <img src="assets/images/404.png"/>
+        <hr> 
+        <h1> You Seems Lost </h1>
+        <hr> 
+        <h2> Return to <a routerLink="/home"> Home Page </a> </h2>
+  </div>
+</ng-template>

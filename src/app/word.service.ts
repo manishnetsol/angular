@@ -8,15 +8,6 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Word } from './word';
 
 
-
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-const url = 'https://app-1531460466.000webhostapp.com/';
-
-
 /* const WORDS: Word[] =  [
     { name: 'abase', meaning: 'Cause to feel shame; hurt the pride of' },
     { name: 'acme', meaning: 'The highest level or degree attainable; the highest stage of development' },
@@ -46,21 +37,34 @@ export class WordService {
 
    /** GET heroes from the server */
     getWords (): Observable<Word[]> {
-    //return this.http.get<Word[]>(`${url}getalldata`);
-
+    
     return this.db.collection<Word>('words').valueChanges();
 
   }
 
-   /* getWords(): Word[] {
-    return WORDS;
-   } */
-
   getWord(name: string) : Observable<Word[]>  {
     
-    //return this.http.get<Word>(`${url}getdata/${name}`);
    return this.db.collection<Word>('words', ref => ref.where('name', '==', name)).valueChanges();
 
   }
+
+  getSearchWord(name: string) : Observable<Word[]>  {
+    
+    //return this.db.collection<Word>('words', ref => ref.where('name', '==', 'A')).valueChanges();
+    return this.db.collection<Word>('words', ref =>ref.orderBy('name').startAt(name).endAt(name+'\uf8ff')).valueChanges();
+   // return this.db.collection<Word>('words', ref => ref.orderBy('name').limit(5).startAt(start).endAt(end));
+   // return this.db.collection<Word>('words').valueChanges();
+ 
+   }
+
+   addWord(word)  {
+    word.name = word.name.charAt(0).toUpperCase() + word.name.slice(1);
+    return this.db.collection<Word>('words').add(word);
+
+    //console.log(word);
+    //return this.db.collection<Word>('words', ref => ref.where('name', '==', name)).valueChanges();
+ 
+   }
+
 
 }

@@ -1,7 +1,8 @@
 <div class="sidenav" [ngStyle]=" { color: '#b0c4de'  } ">
     <a routerLink="/home" >Home</a>
-
-  <div *ngIf="words" >
+    <a routerLink="/add" >Add new word</a>
+    
+  <div class="sidebar-words" *ngIf="words" >
     <ul>
       <li *ngFor="let word of words| async">
           <a routerLink="/word-detail/{{ word.name}}">{{ k }}{{ word.name |titlecase }}</a>

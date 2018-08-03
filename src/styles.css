@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.word-search-list{list-style-type: none;}
+ul.word-search-list{    position: absolute;
+    background: #D3D3D3;
+    width: 132px;
+    margin-top: -1px;
+}
+.word-search-list li{ 
+    text-align: right;
+    margin-left: -48px;
+    float: none;
+    line-height: 1px;
+    width: 100%;
+}
+.word-search-list li:hover{ 
+    background-color: red;
+}
+
+.word-search-list li a{ 
+    padding: 2px;
+}

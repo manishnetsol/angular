@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: ""
+    apiKey: "AIzaSyApG8w7MhSoESutAKNfvepWLFxPlOVyRyo",
+    authDomain: "worldofwords-e5932.firebaseapp.com",
+    databaseURL: "https://worldofwords-e5932.firebaseio.com",
+    projectId: "worldofwords-e5932",
+    storageBucket: "worldofwords-e5932.appspot.com",
+    messagingSenderId: "914580400704"
   }
 };
 

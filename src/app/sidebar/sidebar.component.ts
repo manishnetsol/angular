@@ -20,7 +20,6 @@ export class SidebarComponent implements OnInit {
 
   getWords():void{
 
-    // get the name from the route snapshot.
     this.words = this.wordService.getWords();
 
   }

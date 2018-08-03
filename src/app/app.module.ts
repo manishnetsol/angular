@@ -19,7 +19,9 @@ import { SynonymComponent } from './synonym/synonym.component';
 import { FetchVowelsPipe } from './fetch-vowels.pipe';
 import { HttpClientModule } from '@angular/common/http'; 
 
-import { environment } from '../environments/environment'; 
+import { environment } from '../environments/environment';
+import { SearchDirective } from './directives/search.directive';
+import { AddWordComponent } from './add-word/add-word.component'; 
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { environment } from '../environments/environment';
     WordDetailComponent,
     SearchComponent,
     SynonymComponent,
-    FetchVowelsPipe
+    FetchVowelsPipe,
+    SearchDirective,
+    AddWordComponent
   ],
   imports: [
     BrowserModule,
