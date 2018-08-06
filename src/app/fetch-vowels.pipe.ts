@@ -11,8 +11,9 @@ export class FetchVowelsPipe implements PipeTransform {
 
     if(typeof value !="undefined"){
     for (var i = 0; i <value.length; i++) {
-      if(vowels.some(x=>x==value.charAt(i))){
-        newStrArr.push(value.charAt(i));
+      var char = value.charAt(i).toLowerCase();
+      if(vowels.some(x=>x==char)){
+        newStrArr.push(char);
       }
     }
     newStrArr = Array.from(new Set(newStrArr ));
